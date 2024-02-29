@@ -8,7 +8,7 @@ public class BinarySearchRec {
             System.out.println(arr[binarySearch(arr, 0, arr.length - 1, x)]);
         }
     }
-    //--------------------BINARY SEARCH RECURSIVE------------------------------
+    //--------------------BINARY SEARCH RECURSIVE-----------------------------
     static int binarySearch(int arr[], int low, int high, int x) {
         if (low > high) {
             return -1;
