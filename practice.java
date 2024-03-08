@@ -1,46 +1,14 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-
-class practice{
+public class practice {
     public static void main(String[] args) {
-        chaining Hash = new chaining(7);
-        Hash.insert(20);
-        Hash.insert(30);
-        Hash.insert(40);
-        Hash.insert(50);
-
-        System.out.println(Hash.table);
-        Hash.delete(50);
-        System.out.println(Hash.table);
-        System.out.println(Hash.search(40));
+        String array = "1 box has 3 blue 4 red 6 green and 12 yellow marbles";
+        
     }
-}
-
-
-class chaining {
-    int bucket;
-    ArrayList<LinkedList<Integer>> table;
-
-    chaining(int b){
-        bucket = b;
-        table = new ArrayList<LinkedList<Integer>>();
-        for (int i = 0; i < bucket; i++) {
-            table.add(new LinkedList<Integer>());
+    
+    boolean areNumbersAscending(String s) {
+        String[] arr = s.split(s);
+        for (String string : arr) {
+            
         }
     }
-    void insert(int key){
-        int i = key % bucket;
-        table.get(i).add(key);
-    }
-
-    void delete(int key){
-        int i = key % bucket;
-        table.get(i).remove((Integer)key);
-    }
-
-    boolean search(int key){
-        int i = key % bucket;
-        return table.get(i).contains(key);
-    }
-
 }
+//
