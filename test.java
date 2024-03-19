@@ -1,36 +1,46 @@
-import java.util.*;
-
 public class test {
-    public String sortSentence(String s) {
-        // Split the input string into words
-        String[] words = s.split(" ");
-        
-        // Create a map to store each word with its corresponding number
-        Map<Integer, String> map = new HashMap<>();
-        
-        // Iterate over each word
-        for (String word : words) {
-            // Extract the number from the end of the word
-            int number = Character.getNumericValue(word.charAt(word.length() - 1));
-            // Extract the word without the number
-            String wordWithoutNumber = word.substring(0, word.length() - 1);
-            // Store the word and its number in the map
-            map.put(number, wordWithoutNumber);
+        static void merge(int[] nums1, int m, int[] nums2, int n) {
+            int[] merge = new int[m+n];
+            int i = 0;
+            int j = 0;
+            int k = 0;
+            while(i<m && j<n){
+                if(nums1[i]<=nums2[j]){
+                    // System.out.print(nums1[i]+" ");
+                    merge[k] = nums1[i];
+                    i++;
+                    k++;
+                }else{
+                    merge[k] = nums2[j];
+                    j++;
+                    k++;
+                }
+            }
+            while(i<m){
+                merge[k] = nums1[i];
+                i++;
+                k++;
+            }
+            while(j<n){
+                merge[k] = nums2[j];
+                j++;
+                k++;
+            }
+            for(int a = 0; a<m+n; a++){
+                nums1[a] = merge[a];
+            }
         }
-        
-        // Sort the map based on the numbers
-        List<String> sortedWords = new ArrayList<>();
-        for (int i = 1; i <= words.length; i++) {
-            sortedWords.add(map.get(i));
-        }
-        
-        // Join the sorted words into a single string
-        return String.join(" ", sortedWords);
-    }
 
     public static void main(String[] args) {
-        test solution = new test();
-        String result = solution.sortSentence("is2 sentence4 This1 a3");
-        System.out.println(result); // Output: "This is a sentence"
+        
+        int[] arr = {1,2,3,0,0,0};
+        int[] arr2 = {2,5,6};
+        int m = 3;
+        int n = 3;
+        merge(arr, m, arr2, n);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
     }
 }
